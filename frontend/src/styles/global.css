@@ -1,0 +1,101 @@
+body{
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.UpperArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3{
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: darkslategrey;
+}
+
+.form-main{
+    max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #dddddd;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.each_tenant{
+    width: 100%;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tenants_box{
+    border: 1px solid #dddddd;
+    padding: 0 10px;
+    width: 500px;
+    border-radius: 15px;
+    margin-top: 30px;
+    max-width: 320px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add{
+    background-color: #1010c5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.bookmark__area{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bookmark_box{
+    border: 1px solid slategray;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.description{
+    font-size: 18px;
+    font-weight: 400px;
+    color: slategray;
+}
+
+.close{
+    cursor: pointer;
+    color: slategray;
+    padding-left: 100px;
+}
+
+a{
+    text-decoration: none;
+}

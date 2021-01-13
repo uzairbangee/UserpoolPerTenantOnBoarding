@@ -1,0 +1,43 @@
+{
+  "name": "signup_test",
+  "version": "0.1.0",
+  "bin": {
+    "signup_test": "bin/signup_test.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.76.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "1.76.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigateway": "1.76.0",
+    "@aws-cdk/aws-cognito": "1.76.0",
+    "@aws-cdk/aws-dynamodb": "1.76.0",
+    "@aws-cdk/aws-events-targets": "1.76.0",
+    "@aws-cdk/aws-iam": "1.76.0",
+    "@aws-cdk/aws-lambda": "1.76.0",
+    "@aws-cdk/core": "1.76.0",
+    "@types/bcrypt": "^3.0.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cryptr": "^4.0.1",
+    "@types/shortid": "0.0.29",
+    "amazon-cognito-identity-js": "^4.5.6",
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "cryptr": "^6.0.2",
+    "guid-typescript": "^1.0.9",
+    "shortid": "^2.2.16",
+    "source-map-support": "^0.5.16"
+  }
+}

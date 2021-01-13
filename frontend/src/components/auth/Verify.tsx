@@ -1,0 +1,77 @@
+import React, {useContext} from "react";
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import * as Yup from 'yup';
+import { Formik, Form, ErrorMessage, Field } from 'formik';
+import { Auth } from 'aws-amplify';
+import {ActionContext} from "../../context/GlobalState";
+import { navigate } from "gatsby"
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    textField: {
+      margin: '20px 0'
+    }
+  }),
+);
+
+const loginSchema = Yup.object().shape({
+    code: Yup.string()
+        .required('Please Enter your password')
+});
+
+export default function Verify({path}){
+    const classes = useStyles();
+    const {dispatch, username} = useContext(ActionContext);
+
+    return (
+        <div className="form-main">
+            <h2>Verification</h2>
+            <Formik 
+                initialValues={ {
+                    code: "",
+                }} 
+                validationSchema={loginSchema}
+                onSubmit = {
+                    async (values, {resetForm}) => {
+                        console.log(values);
+                        console.log(username);
+                        try {
+                            const verify = await Auth.confirmSignUp(username, values.code);
+                            console.log(verify);
+                            localStorage.removeItem('email_to_verify');
+                            dispatch({
+                                type: "VERIFICATION_REQUIRED",
+                                payload: false
+                            })
+                            navigate("/app/login")
+                        } catch (error) {
+                            console.log('error confirming sign up', error);
+                        }
+                        resetForm({values: {
+                            code: ""
+                        }});
+                    }
+                }
+            >
+                {
+                (formik) => (
+                    <Form onSubmit={formik.handleSubmit}>
+                        <div>
+                            <Field type="type" as={TextField} classes={{root: classes.textField}} variant="outlined" label="Confirmation Code" name="code" id="code" fullWidth={true} />
+                            <ErrorMessage name="code" render={(msg)=>(
+                                <span style={{color:"red"}}>{msg}</span>
+                            )} />
+                        </div>
+                        <div>
+                            <button type="submit" className="add">
+                            Verify
+                            </button>
+                        </div>
+                    </Form>
+                )
+                }
+            </Formik>
+        </div>
+    )
+}
